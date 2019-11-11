@@ -1,0 +1,14 @@
+module Workarea
+  decorate Payment::StoreCreditCardTest, with: :payflow do
+   def test_perform_stores_on_the_gateway
+      credit_card.token = nil
+
+      original_store = credit_card_gateway.method(:verify)
+      credit_card_gateway
+        .expects(:verify)
+        .returns(original_store.call(credit_card.to_active_merchant))
+
+      Workarea::Payment::StoreCreditCard.new(credit_card).perform!
+    end
+  end
+end

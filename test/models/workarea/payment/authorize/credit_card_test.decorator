@@ -1,0 +1,7 @@
+module Workarea
+  decorate Payment::Authorize::CreditCardTest, with: :payflow do
+   def test_complete_does_nothing_if_gateway_storage_fails
+      skip "Payflow pro tokenizes on successfull transaction"
+    end
+  end
+end

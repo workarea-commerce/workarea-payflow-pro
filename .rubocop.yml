@@ -1,0 +1,8 @@
+inherit_gem:
+  workarea-ci: rubocop.yml
+
+AllCops:
+  Exclude:
+    - 'test/dummy/**/*'
+    - 'lib/workarea/payflow_pro.rb'
+    - 'lib/workarea/payflow_pro/**/*'

@@ -1,0 +1,15 @@
+.bundle/
+.DS_Store
+.sass-cache/
+.byebug_history
+
+Gemfile.lock
+
+coverage/
+log/*.log
+pkg/
+test/dummy/public/
+test/dummy/tmp/
+test/dummy/log/*.log
+test/dummy/db/*.sqlite3
+test/dummy/db/*.sqlite3-journal

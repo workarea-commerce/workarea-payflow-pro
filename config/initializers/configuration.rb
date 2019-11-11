@@ -1,0 +1,1 @@
+Workarea::PayflowPro.auto_initialize_gateway

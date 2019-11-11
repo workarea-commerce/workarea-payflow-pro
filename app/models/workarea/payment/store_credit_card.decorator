@@ -1,0 +1,13 @@
+module Workarea
+  decorate Payment::StoreCreditCard, with: :payflow do
+    def perform!
+      return true if @credit_card.token.present?
+
+      response = handle_active_merchant_errors do
+        gateway.verify(@credit_card.to_active_merchant)
+      end
+
+      @credit_card.token = response.params['pn_ref']
+    end
+  end
+end

@@ -1,0 +1,27 @@
+module Workarea
+  decorate Payment::Authorize::CreditCard, with: :payflow do
+    decorated do
+      include Payment::CreditCardData
+      delegate :address, to: :tender
+    end
+
+
+    def complete!
+      transaction.response = handle_active_merchant_errors do
+        gateway.authorize(
+          transaction.amount.cents,
+          payment_source,
+          transaction_args
+        )
+      end
+
+      # save the token to the card after auth.
+      # this avoids a zero dollar auth that
+      # is rejected by american express.
+      if transaction.success? & transaction.response.params['pn_ref'].present?
+        tender.token = transaction.response.params['pn_ref']
+        tender.save!
+      end
+    end
+  end
+end
