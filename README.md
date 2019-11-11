@@ -57,11 +57,9 @@ Developer Documentation
 Workarea Platform Documentation
 --------------------------------------------------------------------------------
 
-See [http://developer.weblinc.com](http://developer.weblinc.com) for Workarea platform documentation.
+See [https://developer.workarea.com](https://developer.workarea.com) for Workarea platform documentation.
 
-Copyright & Licensing
+License
 --------------------------------------------------------------------------------
+Workarea Commerce Platform is released under the [Business Software License](https://github.com/workarea-commerce/workarea/blob/master/LICENSE)
 
-Copyright WebLinc 2018. All rights reserved.
-
-For licensing, contact sales@workarea.com.
