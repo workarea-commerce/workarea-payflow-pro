@@ -37,10 +37,9 @@ task :release do
   Rake::Task['workarea:changelog'].execute
   system 'git add CHANGELOG.md'
   system 'git commit -m "Update CHANGELOG"'
-  system 'git push origin HEAD'
 
   system "git tag -a v#{Workarea::PayflowPro::VERSION} -m 'Tagging #{Workarea::PayflowPro::VERSION}'"
-  system 'git push --tags'
+  system 'git push origin HEAD --follow-tags'
 
   system 'gem build workarea-payflow_pro.gemspec'
   system "gem push workarea-payflow_pro-#{Workarea::PayflowPro::VERSION}.gem --host #{host}"
